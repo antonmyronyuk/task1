@@ -1,6 +1,6 @@
-.notes-link {
-    margin-bottom: 20px;
-    text-align: center;
+.notes-link, .add-note-link {
+    text-align: right;
+    margin-bottom: 15px;
 }
 
 #noteButton {
@@ -20,4 +20,8 @@
 
 #noteText {
     resize: none;
+}
+
+#noteText {
+    border-right: 1px solid #ddd;
 }

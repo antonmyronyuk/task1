@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% if title %}
+            {{ title }}
+        {% else %}
+            Notes
+        {% endif %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="/static/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+</head>
+<body>
+    <div class="container">
+		<div class="jumbotron">
+            {% block content %} {% endblock %}
+        </div>
+    </div>
+
+    <!-- libs -->
+	<script srс="/static/js/lib/bootstrap.min.js"></script>
+	<script srс="/static/js/lib/jquery-3.3.1.min.js"></script>
+
+</body>
+</html>

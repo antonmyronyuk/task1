@@ -1,39 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Notes</title>
-	<link rel="stylesheet" type="text/css" href="/static/css/lib/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/notes.css">
-</head>
-<body>
-	<div class="container">
-		<div class="jumbotron">
-            <div class="add-note-link">
-                <a href="/add_note">Add note</a>
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="add-note-link">
+        <a href="/add_note">Add note</a>
+    </div>
+    <h3>Notes</h3>
+    <hr>
+    <div class="notes">
+        {% for note in notes %}
+        <div class="row">
+            <div class="col-10" id="noteText">
+                {{ note.text }}
             </div>
-            <h3>Notes</h3>
-            <hr>
-            <div class="notes">
-                {% for note in notes %}
-                <div class="row">
-                    <div class="col-10" id="noteText">
-                        {{ note.text }}
-                    </div>
-                    <div class="col-2">
-                        {{ note.unique_count }}
-                    </div>
-                </div>
-                <hr>
-                {% endfor %}
+            <div class="col-2">
+                {{ note.unique_count }}
             </div>
-		</div>
-	</div>
-
-
-	<!-- libs -->
-	<script srс="/static/js/lib/bootstrap.min.js"></script>
-	<script srс="/static/js/lib/jquery-3.3.1.min.js"></script>
-
-</body>
-</html>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+{% endblock %}

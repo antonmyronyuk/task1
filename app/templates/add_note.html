@@ -1,43 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add note</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/lib/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/add_note.css">
-</head>
-<body>
-    <div class="container">
-		<div class="jumbotron">
-            <div class="notes-link">
-                <a href="/notes">All the notes</a>
-            </div>
+{% extends "base.html" %}
 
-			<div class="new-note">
-                <h4>Add new note:</h4>
-                <textarea class="form-control" id="noteText" placeholder="Your note"
-                          rows="4" maxlength="500"></textarea>
-                <button type="button" class="btn btn-success btn-block"
-                        id="noteButton" onclick="alert('clicked')">
-                    Add
-                </button>
-            </div>
-            <hr>
+{% block content %}
+    <div class="notes-link">
+        <a href="/notes">All the notes</a>
+    </div>
 
-            <!-- pretty alerts -->
-            <div id="alert-success" class="alert alert-success" role="alert" style="display: none;">
-                Successfully added!
-            </div>
+    <div class="new-note">
+        <h4>Add new note:</h4>
+        <textarea class="form-control" id="noteTextarea" placeholder="Your note"
+                  rows="4" maxlength="500"></textarea>
+        <button type="button" class="btn btn-success btn-block"
+                id="noteButton" onclick="alert('clicked')">
+            Add
+        </button>
+    </div>
+    <hr>
 
-            <div id="alert-error" class="alert alert-danger" role="alert" style="display: none;">
-                You can't add this!
-            </div>
-		</div>
-	</div>
+    <!-- pretty alerts -->
+    <div id="alert-success" class="alert alert-success" role="alert" style="display: none;">
+        Successfully added!
+    </div>
 
-    <!-- libs -->
-	<script srс="/static/js/lib/bootstrap.min.js"></script>
-	<script srс="/static/js/lib/jquery-3.3.1.min.js"></script>
-
-</body>
-</html>
+    <div id="alert-error" class="alert alert-danger" role="alert" style="display: none;">
+        You can't add this!
+    </div>
+{% endblock %}

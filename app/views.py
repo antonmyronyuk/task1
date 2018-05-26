@@ -5,17 +5,11 @@ from .models import Note
 
 
 """
-According to task I decided not to give notes to the render_template 
-function as a parameter. All the notes will be requested dynamically
-with using ajax on a client. Furthermore, I will not use constructions
-like this '{{ }}' and this '{% %}' in HTML page to improve performance
-and follow KISS principle
-
-UPD: Oops, I had some misunderstanding, I've though that 'Постарайтесь
-избежать больших шаблонов сайтов' means not use html templates, but it 
-really means other
-
-Templates is the easiest way to do this task
+I think templates are good solution for this task, because
+we don't need to build SPA (according to the task description
+site should contain two pages: one with adding form, second
+shows all the notes, so we don't need to build real-time 
+notes adding without refreshing of the page on a client)
 """
 @app.route('/')
 @app.route('/notes')
@@ -24,7 +18,11 @@ def notes():
     Page with notes which are ordered by
     number of unique words in each note
     """
-    return render_template('notes.html', notes=Note.all_ordered())
+    return render_template(
+        'notes.html',
+        notes=Note.all_ordered(),
+        title='Sorted notes'
+    )
 
 
 @app.route('/add_note')
