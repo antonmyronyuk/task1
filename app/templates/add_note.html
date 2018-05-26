@@ -4,12 +4,34 @@
     <meta charset="UTF-8">
     <title>Add note</title>
     <link rel="stylesheet" type="text/css" href="/static/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/add_note.css">
 </head>
 <body>
     <div class="container">
 		<div class="jumbotron">
-            <a href="/notes">All the notes</a>
-			<h3>Add note</h3>
+            <div class="notes-link">
+                <a href="/notes">All the notes</a>
+            </div>
+
+			<div class="new-note">
+                <h4>Add new note:</h4>
+                <textarea class="form-control" id="noteText" placeholder="Your note"
+                          rows="4" maxlength="500"></textarea>
+                <button type="button" class="btn btn-success btn-block"
+                        id="noteButton" onclick="alert('clicked')">
+                    Add
+                </button>
+            </div>
+            <hr>
+
+            <!-- pretty alerts -->
+            <div id="alert-success" class="alert alert-success" role="alert" style="display: none;">
+                Successfully added!
+            </div>
+
+            <div id="alert-error" class="alert alert-danger" role="alert" style="display: none;">
+                You can't add this!
+            </div>
 		</div>
 	</div>
 
