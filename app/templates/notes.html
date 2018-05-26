@@ -13,6 +13,20 @@
                 <a href="/add_note">Add note</a>
             </div>
             <h3>Notes</h3>
+            <hr>
+            <div class="notes">
+                {% for note in notes %}
+                <div class="row">
+                    <div class="col-10" id="noteText">
+                        {{ note.text }}
+                    </div>
+                    <div class="col-2">
+                        {{ note.unique_count }}
+                    </div>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
 		</div>
 	</div>
 
