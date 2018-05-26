@@ -1,4 +1,6 @@
-from flask import render_template
+from flask import (
+    render_template, request, jsonify
+)
 
 from app import app
 from .models import Note
@@ -25,9 +27,24 @@ def notes():
     )
 
 
-@app.route('/add_note')
-def add_note():
+@app.route('/notes/add', methods=['GET'])
+def add_note_get():
     """
     Page with form for adding a new note
     """
-    return render_template('add_note.html')
+    return render_template(
+        'add_note.html',
+        title='Add new note'
+    )
+
+
+@app.route('/notes/add', methods=['POST'])
+def add_node_post():
+    text = request.form['text']
+    print(text)
+
+    return jsonify({'status': 'some status'}), 404
+
+
+
+

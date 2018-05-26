@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="notes-link">
-        <a href="/notes">All the notes</a>
+        <a href="{{ url_for('notes') }}">All the notes</a>
     </div>
 
     <div class="new-note">
@@ -10,18 +10,22 @@
         <textarea class="form-control" id="noteTextarea" placeholder="Your note"
                   rows="4" maxlength="500"></textarea>
         <button type="button" class="btn btn-success btn-block"
-                id="noteButton" onclick="alert('clicked')">
+                id="noteButton" onclick="validateNote()">
             Add
         </button>
     </div>
     <hr>
 
     <!-- pretty alerts -->
-    <div id="alert-success" class="alert alert-success" role="alert" style="display: none;">
+    <div id="alertSuccess" class="alert alert-success" role="alert" style="display: none;">
         Successfully added!
     </div>
 
-    <div id="alert-error" class="alert alert-danger" role="alert" style="display: none;">
+    <div id="alertError" class="alert alert-danger" role="alert" style="display: none;">
         You can't add this!
+    </div>
+
+    <div id="alertWrong" class="alert alert-warning" role="alert" style="display: none;">
+        Oops, somethig went wrong!
     </div>
 {% endblock %}
