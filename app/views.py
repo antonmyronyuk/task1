@@ -1,9 +1,10 @@
 from flask import (
-    render_template, request, jsonify
+    render_template, request, jsonify, escape
 )
 
-from app import app
+from app import app, db
 from .models import Note
+from counter import count_unique_words
 
 
 """
@@ -42,9 +43,17 @@ def add_note_get():
 def add_node_post():
     text = request.form['text']
     print(text)
+    try:
+        note = Note(
+            text=text,  # text will be escaped while rendering
+            unique_count=count_unique_words(text)
+        )
+        db.session.add(note)
+        db.session.commit()
+    except Exception as e:
+        print(e)
+        return jsonify({'status': 'bad note text'}), 400
 
-    return jsonify({'status': 'some status'}), 404
-
-
+    return jsonify({'status': 'OK'}), 200
 
 

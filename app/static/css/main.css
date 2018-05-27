@@ -18,10 +18,10 @@
     background: #FFF;
 }
 
-#noteText {
+#noteTextarea {
     resize: none;
 }
 
-#noteText {
+.note-text {
     border-right: 1px solid #ddd;
 }

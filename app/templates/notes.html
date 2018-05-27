@@ -7,9 +7,18 @@
     <h3>Notes</h3>
     <hr>
     <div class="notes">
+        <div class="row">
+            <div class="col-10 note-text">
+                <b>Note text</b>
+            </div>
+            <div class="col-2">
+                <b>Unique words</b>
+            </div>
+        </div>
+        <hr>
         {% for note in notes %}
         <div class="row">
-            <div class="col-10" id="noteText">
+            <div class="col-10 note-text">
                 {{ note.text }}
             </div>
             <div class="col-2">
