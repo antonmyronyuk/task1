@@ -16,7 +16,7 @@ notes adding without refreshing of the page on a client)
 """
 @app.route('/')
 @app.route('/notes')
-def notes():
+def notes_get():
     """
     Page with notes which are ordered by
     number of unique words in each note
@@ -26,6 +26,16 @@ def notes():
         notes=Note.all_ordered(),
         title='Sorted notes'
     )
+
+
+@app.route('/notes', methods=['DELETE'])
+def notes_delete():
+    """
+    Delete all the notes from database
+    """
+    Note.query.delete()
+    db.session.commit()
+    return jsonify({'status': 'OK'}), 200
 
 
 @app.route('/notes/add', methods=['GET'])
@@ -45,7 +55,8 @@ def add_node_post():
     print(text)
     try:
         note = Note(
-            text=text,  # text will be escaped while rendering
+            # text will be escaped automatically while rendering
+            text=text,
             unique_count=count_unique_words(text)
         )
         db.session.add(note)

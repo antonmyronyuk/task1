@@ -30,6 +30,17 @@ function addNote(text) {
 }
 
 
+// send note text to the server
+function deleteNotes() {
+    $.ajax({
+        url: "/notes",
+        method: "DELETE",
+	}).done(function(msg) {
+	    $("#notesData").html('');
+	});
+}
+
+
 
 // show pretty alert for 3 seconds
 function showAlert(id) {

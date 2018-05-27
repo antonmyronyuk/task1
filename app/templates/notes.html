@@ -4,6 +4,9 @@
     <div class="add-note-link">
         <a href="{{ url_for('add_note_get') }}">Add note</a>
     </div>
+    <div class="delete-notes">
+        <a href="#" onclick="deleteNotes()">Delete all the notes</a>
+    </div>
     <h3>Notes</h3>
     <hr>
     <div class="notes">
@@ -16,16 +19,18 @@
             </div>
         </div>
         <hr>
-        {% for note in notes %}
-        <div class="row">
-            <div class="col-10 note-text">
-                {{ note.text }}
+        <div id="notesData">
+            {% for note in notes %}
+            <div class="row">
+                <div class="col-10 note-text">
+                    {{ note.text }}
+                </div>
+                <div class="col-2">
+                    {{ note.unique_count }}
+                </div>
             </div>
-            <div class="col-2">
-                {{ note.unique_count }}
-            </div>
+            <hr>
+            {% endfor %}
         </div>
-        <hr>
-        {% endfor %}
     </div>
 {% endblock %}

@@ -1,6 +1,6 @@
-.notes-link, .add-note-link {
+.notes-link, .add-note-link, .delete-notes {
     text-align: right;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 #noteButton {
