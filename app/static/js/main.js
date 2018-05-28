@@ -15,7 +15,7 @@ function validateNote() {
 // send note text to the server
 function addNote(text) {
     $.ajax({
-        url: "/notes/add",
+        url: "/notes",
         method: "POST",
         data: {
             text: text

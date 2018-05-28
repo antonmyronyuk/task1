@@ -59,7 +59,6 @@ def note_post():
         text = request.form['text']
     except KeyError:
         return jsonify({'status': 'there is no text field in the note'}), 400
-    print(text)
 
     try:
         note = Note(
@@ -67,12 +66,10 @@ def note_post():
             text=text,
             unique_count=count_unique_words(text)
         )
+    except ValueError as e:  # failed validation
+        return jsonify({'status': str(e)}), 400
+    else:
         db.session.add(note)
         db.session.commit()
-    except Exception as e:
-        print(e)
-        return jsonify({'status': 'bad note text'}), 400
 
     return jsonify({'status': 'OK'}), 200
-
-
