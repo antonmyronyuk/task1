@@ -15,7 +15,7 @@ function validateNote() {
 // send note text to the server
 function addNote(text) {
     $.ajax({
-        url: "/notes",
+        url: "/api/notes",
         method: "POST",
         data: {
             text: text
@@ -29,11 +29,9 @@ function addNote(text) {
     $("#noteTextarea").val('');
 }
 
-
-// send note text to the server
 function deleteNotes() {
     $.ajax({
-        url: "/notes",
+        url: "/api/notes",
         method: "DELETE",
 	}).done(function(msg) {
 	    $("#notesData").html('');
@@ -41,11 +39,10 @@ function deleteNotes() {
 }
 
 
-
-// show pretty alert for 3 seconds
+// show pretty alert for 2 seconds
 function showAlert(id) {
 	$(id).slideDown("slow");
 	setTimeout(function() {
     	$(id).slideUp("slow");
-    }, 3000);
+    }, 2000);
 }

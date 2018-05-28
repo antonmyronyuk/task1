@@ -29,16 +29,6 @@ def notes_get():
     )
 
 
-@app.route('/notes', methods=['DELETE'])
-def notes_delete():
-    """
-    Delete all the notes from database
-    """
-    Note.query.delete()
-    db.session.commit()
-    return jsonify({'status': 'OK'}), 200
-
-
 @app.route('/add_note', methods=['GET'])
 def add_note_get():
     """
@@ -49,8 +39,24 @@ def add_note_get():
         title='Add new note'
     )
 
+# #############################################
+# ######              API          ############
+# #############################################
 
-@app.route('/notes', methods=['POST'])
+
+@app.route('/api/notes', methods=['DELETE'])
+def notes_delete():
+    """
+    Delete all the notes from database
+    """
+    rows_deleted = Note.query.delete()
+    db.session.commit()
+    return jsonify(
+        {'status': 'OK - {0} rows was deleted'.format(rows_deleted)}
+    ), 200
+
+
+@app.route('/api/notes', methods=['POST'])
 def note_post():
     """
     Add new note to database
@@ -72,5 +78,14 @@ def note_post():
         db.session.add(note)
         db.session.commit()
 
-    print(note.id)
-    return jsonify({'status': 'OK'}), 200
+    # return created item (helpful while testing server from console)
+    return jsonify(
+        {
+            'status': 'OK - created a new note',
+            'note': {
+                'id': note.id,
+                'text': note.text,
+                'unique_count': note.unique_count
+            }
+        }
+    ), 201
