@@ -72,4 +72,5 @@ def note_post():
         db.session.add(note)
         db.session.commit()
 
+    print(note.id)
     return jsonify({'status': 'OK'}), 200
