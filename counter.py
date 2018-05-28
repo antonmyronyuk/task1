@@ -9,12 +9,10 @@ def count_unique_words(text):
     :return: int
     """
     if not text:  # None or ''
-        raise ValueError('No text!')
+        raise ValueError('Note should contain text!')
 
     words = re.split('\W+', text)
 
-
-    print(words)
     # words list may contain empty string only at the begin or/and
     # at the end if text has leading or trailing spaces
     # the fastest way to delete empty string is to check only

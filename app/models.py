@@ -19,11 +19,11 @@ class Note(db.Model):
     @validates('text')
     def validate_text(self, key, value):
         # print('key: {0}, value: {1}'.format(key, value))
-        if value is None:
+        if not value:
             raise ValueError('Note should contain text!')
         if not value.strip():  # if there are no non-space chars
             raise ValueError(
-                'Note text should contain at least one non-space character'
+                'Note text should contain at least one non-space character!'
             )
         if len(value) > 500:
             raise ValueError('Note text should contain up to 500 chars!')
