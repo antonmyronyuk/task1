@@ -4,7 +4,7 @@
 DROP TABLE IF EXISTS notes;
 
 CREATE TABLE notes (
-  id INTEGER PRIMARY KEY NOT NULL,
+  id SERIAL PRIMARY KEY,
   text TEXT NOT NULL,
   unique_count INTEGER
 );
