@@ -6,7 +6,6 @@ from app import app, db
 from .models import Note
 from counter import count_unique_words
 
-
 """
 I think templates are good solution for this task, because
 we don't need to build SPA (according to the task description
@@ -14,8 +13,10 @@ site should contain two pages: one with adding form, second
 shows all the notes, so we don't need to build real-time 
 notes adding without refreshing of the page on a client)
 """
-@app.route('/')
-@app.route('/notes')
+
+
+@app.route('/', methods=['GET'])
+@app.route('/notes', methods=['GET'])
 def notes_get():
     """
     Page with notes which are ordered by
@@ -38,7 +39,7 @@ def notes_delete():
     return jsonify({'status': 'OK'}), 200
 
 
-@app.route('/notes/add', methods=['GET'])
+@app.route('/add_note', methods=['GET'])
 def add_note_get():
     """
     Page with form for adding a new note
@@ -49,10 +50,17 @@ def add_note_get():
     )
 
 
-@app.route('/notes/add', methods=['POST'])
-def add_node_post():
-    text = request.form['text']
+@app.route('/notes', methods=['POST'])
+def note_post():
+    """
+    Add new note to database
+    """
+    try:
+        text = request.form['text']
+    except KeyError:
+        return jsonify({'status': 'there is no text field in the note'}), 400
     print(text)
+
     try:
         note = Note(
             # text will be escaped automatically while rendering

@@ -18,7 +18,7 @@ class Note(db.Model):
     # http://docs.sqlalchemy.org/en/latest/orm/mapped_attributes.html
     @validates('text')
     def validate_text(self, key, value):
-        print('key: {0}, value: {1}'.format(key, value))
+        # print('key: {0}, value: {1}'.format(key, value))
         if value is None:
             raise ValueError('Note should contain text!')
         if not value.strip(' '):  # if there are no non-space chars
