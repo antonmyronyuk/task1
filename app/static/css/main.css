@@ -1,13 +1,18 @@
 .notes-link, .add-note-link, .delete-notes {
-    text-align: right;
     margin-bottom: 10px;
+    text-align: right;
 }
+.notes-link, .add-note-link, #deleteNotes {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 
 #noteButton {
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px 20px 10px 20px;
-    width: 20%;
+    width: 100%;
     font-weight: bold;
 }
 

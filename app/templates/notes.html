@@ -10,25 +10,25 @@
             Delete all
         </button>
     </div>
-    <h3>Notes</h3>
+    <h2>Notes</h2>
     <hr>
     <div class="notes">
         <div class="row">
-            <div class="col-10 note-text">
-                <b>Note text</b>
+            <div class="col-8 note-text">
+                <em><b>Note text</b></em>
             </div>
-            <div class="col-2">
-                <b>Unique words</b>
+            <div class="col-4">
+                <em><b>Unique words</b></em>
             </div>
         </div>
         <hr>
         <div id="notesData">
             {% for note in notes %}
             <div class="row">
-                <div class="col-10 note-text">
+                <div class="col-8 note-text">
                     {{ note.text }}
                 </div>
-                <div class="col-2">
+                <div class="col-4">
                     {{ note.unique_count }}
                 </div>
             </div>
