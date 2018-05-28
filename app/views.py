@@ -24,7 +24,7 @@ def notes_get():
     """
     return render_template(
         'notes.html',
-        notes=Note.all_ordered(),
+        notes=Note.ordered_all(),
         title='Sorted notes'
     )
 

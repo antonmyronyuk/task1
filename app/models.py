@@ -30,9 +30,9 @@ class Note(db.Model):
         return value
 
     @classmethod
-    def all_ordered(cls):
+    def ordered_all(cls):
         """
         get all notes, ordered by number of unique words
         """
-        return cls.query.order_by(Note.unique_count.desc())
+        return cls.query.order_by(Note.unique_count.desc()).all()
 

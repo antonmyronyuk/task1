@@ -8,8 +8,12 @@ def count_unique_words(text):
     :param text: str
     :return: int
     """
+    if not text:  # None or ''
+        raise ValueError('No text!')
 
     words = re.split('\W+', text)
+
+
     print(words)
     # words list may contain empty string only at the begin or/and
     # at the end if text has leading or trailing spaces
