@@ -26,6 +26,9 @@ class TestNoteModel(unittest.TestCase):
         with self.assertRaises(ValueError):
             Note(text='a ' * 900, unique_count=1)  # long string
 
+        # success
+        self.assertTrue(Note(text='text', unique_count=1))
+
     def test_all_ordered(self):
         strings = ['  three,, words here', 'one', 'lol lol lol lol kek',
                    ' ....??... ', 'the biggest note in this test']
@@ -49,10 +52,3 @@ class TestNoteModel(unittest.TestCase):
         )
 
         self.assertEqual(notes_db, notes_original)
-
-
-
-
-
-
-

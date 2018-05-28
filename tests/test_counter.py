@@ -39,10 +39,18 @@ class TestCounter(unittest.TestCase):
         self.assertEqual(cnt('2pac 4ever'), 2)
 
     def test_underscore_string(self):
-        """Underscore '_' is too a word"""
+        """Underscore '_' is a word too"""
         self.assertEqual(cnt('_'), 1)
         self.assertEqual(cnt('   _____   '), 1)
         self.assertEqual(cnt('lol_kek__'), 1)
         self.assertEqual(cnt('__private ,,,'), 1)
         self.assertEqual(cnt('for _ in words'), 4)
         self.assertEqual(cnt('   ,. 1_2_3 ,, 1_2_3_4,,1_2_3'), 2)
+
+    def test_unicode(self):
+        """Some unicode characters are also words"""
+        self.assertEqual(cnt('отакої'), 1)
+        self.assertEqual(cnt('Що це має бути?'), 4)
+        self.assertEqual(cnt('顔文    字'), 2)
+        # smiles != words
+        self.assertEqual(cnt('🎅 🍜  ⏱ ㋡ 🌲'), 0)

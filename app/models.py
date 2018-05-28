@@ -21,7 +21,7 @@ class Note(db.Model):
         # print('key: {0}, value: {1}'.format(key, value))
         if value is None:
             raise ValueError('Note should contain text!')
-        if not value.strip(' '):  # if there are no non-space chars
+        if not value.strip():  # if there are no non-space chars
             raise ValueError(
                 'Note text should contain at least one non-space character'
             )

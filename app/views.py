@@ -29,8 +29,8 @@ def notes_get():
     )
 
 
-@app.route('/add_note', methods=['GET'])
-def add_note_get():
+@app.route('/notes/add', methods=['GET'])
+def notes_add_get():
     """
     Page with form for adding a new note
     """
