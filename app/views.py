@@ -16,6 +16,8 @@ But you can add multiple notes on adding page without refreshing
 of the page (client sends ajax request to the server and shows if
 adding was successful). Also notes deleting works without refreshing
 of the page (client also sends ajax request and clear notes section).
+Also we have added trailing slash to routes that return html to avoid 
+returning 404 page when user adds slash to the route.
 """
 
 
@@ -61,7 +63,7 @@ def notes_delete():
 
 
 @app.route('/api/notes', methods=['POST'])
-def note_post():
+def notes_post():
     """
     Add new note to database
     """
