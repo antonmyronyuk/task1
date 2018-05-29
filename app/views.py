@@ -11,7 +11,11 @@ I think templates are good solution for this task, because
 we don't need to build SPA (according to the task description
 site should contain two pages: one with adding form, second
 shows all the notes, so we don't need to build real-time 
-notes adding without refreshing of the page on a client)
+notes adding without refreshing of the page on a client).
+But you can add multiple notes on adding page without refreshing
+of the page (client sends ajax request to the server and shows if
+adding was successful). Also notes deleting works without refreshing
+of the page (client also sends ajax request and clear notes section).
 """
 
 
