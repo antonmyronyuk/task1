@@ -17,7 +17,7 @@ def count_unique_words(text):
     # at the end if text has leading or trailing spaces
     # the fastest way to delete empty string is to check only
     # first and last element of the list directly by index
-    # splitting of spaces-string return ['', ''], splitting of
+    # splitting of spaces-string (' ') return ['', ''], splitting of
     # non-spaces-string return list with at least one non-space value
     # so conditions below should not crash program
 
@@ -39,10 +39,3 @@ def count_unique_words(text):
     )
 
     return len(unique_words)
-
-
-# print(count_unique_words('lol kek'))
-# print(count_unique_words(',. &'))
-# print(count_unique_words('lol, kekos, kek, lul, lol?'))
-# print(count_unique_words('lol kek kek kek , kek, lol'))
-# print(count_unique_words('Як тобі таке, Ілон_Маск __?___'))

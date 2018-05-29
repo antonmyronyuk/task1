@@ -35,4 +35,3 @@ class Note(db.Model):
         get all notes, ordered by number of unique words
         """
         return cls.query.order_by(Note.unique_count.desc()).all()
-

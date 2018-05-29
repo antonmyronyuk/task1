@@ -24,13 +24,13 @@ class TestViews(unittest.TestCase):
         self.assertEqual(res.headers['Content-Type'],
                          'text/html; charset=utf-8')
 
-        res = self.app.get('/notes')
+        res = self.app.get('/notes/')
         self.assertEqual(res.status_code, 200)
         self.assertEqual(res.headers['Content-Type'],
                          'text/html; charset=utf-8')
 
     def test_notes_add_get(self):
-        res = self.app.get('/notes/add')
+        res = self.app.get('/notes/add/')
         self.assertEqual(res.status_code, 200)
 
     def test_notes_delete(self):

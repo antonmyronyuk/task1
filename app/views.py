@@ -20,7 +20,7 @@ of the page (client also sends ajax request and clear notes section).
 
 
 @app.route('/', methods=['GET'])
-@app.route('/notes', methods=['GET'])
+@app.route('/notes/', methods=['GET'])
 def notes_get():
     """
     Page with notes which are ordered by
@@ -33,7 +33,7 @@ def notes_get():
     )
 
 
-@app.route('/notes/add', methods=['GET'])
+@app.route('/notes/add/', methods=['GET'])
 def notes_add_get():
     """
     Page with form for adding a new note
