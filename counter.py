@@ -17,7 +17,8 @@ def count_unique_words(text):
     # at the end if text has leading or trailing spaces
     # the fastest way to delete empty string is to check only
     # first and last element of the list directly by index
-    # words list will contain at least one non-empty string
+    # splitting of spaces-string return ['', ''], splitting of
+    # non-spaces-string return list with at least one non-space value
     # so conditions below should not crash program
 
     # first
