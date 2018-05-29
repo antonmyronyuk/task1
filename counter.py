@@ -11,6 +11,8 @@ def count_unique_words(text):
     if not text:  # None or ''
         raise ValueError('Note should contain text!')
 
+    # there W means [^a-zA-Z0-9_]  + UNICODE, so strings like
+    # '___', 'one_two_three' will be calculated as only one word
     words = re.split('\W+', text)
 
     # words list may contain empty string only at the begin or/and
@@ -31,11 +33,6 @@ def count_unique_words(text):
 
     # set contain only unique values (we use lower() to ignore case)
     # it is easy and really fast way to count unique values
-    unique_words = set(
-        # there W means [^a-zA-Z0-9_]  + UNICODE, so strings like
-        # '___', 'one_two_three' will be calculated as only one word
-        # also we use generator expression to save more memory
-        (word.lower() for word in words)
-    )
+    unique_words = set(word.lower() for word in words)
 
     return len(unique_words)
